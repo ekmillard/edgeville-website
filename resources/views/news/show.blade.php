@@ -15,7 +15,7 @@
                             <h2>{{ $newsPost->title }}</h2>
                             <h4 class="date">{{ $newsPost->published_at->format('F d, Y') }}</h4>
                         </div>
-                            {!! $newsPost->content !!}
+                        {!! $newsPost->content !!}
                     </div>
                 </div>
             </div>
