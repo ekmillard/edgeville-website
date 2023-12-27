@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 use App\Models\Announcement;
+use Illuminate\View\View;
 
 class NoticeBar extends Component
 {
@@ -14,7 +15,7 @@ class NoticeBar extends Component
         $this->announcement = Announcement::latest()->first();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.notice-bar');
     }
