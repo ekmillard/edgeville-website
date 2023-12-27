@@ -1,0 +1,141 @@
+
+.search-player input[type=text], .select-mode {
+    width: 90%;
+}
+
+input[type=text], .select-mode, input[type=password], input[type=checkbox] {
+    background-color: rgba(0,0,0,0.3);
+    border:none;
+    padding: 10px;
+    color: #8a8a8a;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow:0 1px 0 rgba(255,255,255,0.1), 0 3px 14px rgba(0,0,0,0.25) inset;
+}
+
+input[type="text"]:focus, input[type=password]:focus {
+    outline: none;
+    border-color: $color-primary;
+}
+
+.search-player, .select-mode {
+    text-align:center;
+    padding-top:20px;
+}
+
+.select-mode {
+    margin:15px auto;
+}
+
+.hs-filters {
+    text-align:center;
+}
+
+.hiscore-cat-icons .active {
+    background: rgba(0, 0, 0, .4);
+    box-shadow: 0px 1px 12px 2px rgb(0 0 0 / 50%) inset;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-radius: 3px;
+}
+
+.hiscore-cat-icons img {
+    padding: 15px 0;
+}
+
+.hiscore-cat-icons .col:hover {
+    background:rgba(0,0,0,.5);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.hiscores-cat {
+    text-align: center;
+    padding:10px 28px 10px 43px;
+}
+
+.hiscores-table {
+    text-align: left;
+}
+
+.hiscores-table table a {
+    color:#c4c4c4;
+}
+
+.hiscores-table table th {
+    font-size: 1rem;
+    background: rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    color: #5d5d5d;
+    border:none
+}
+
+.hiscores-table table tr { 
+    height: 45px;
+    border: none;
+}
+
+.hiscores-table table tr:nth-child(odd) { 
+    background: rgba(255,255,255,0.02);
+    border-radius: 5px;
+}
+
+.hiscores-table table tr:nth-child(odd) td:first-child {border-radius: 5px 0 0 5px;}
+.hiscores-table table tr:nth-child(odd) td:last-child {border-radius: 0 5px 5px 0;}
+
+.hiscores-table td {
+    padding: 12px 10px 0px 15px;
+    font-size: 1rem;
+    border: none;
+    font-weight: 700;
+}
+
+.hiscores-table td.rank {
+    font-size: 1.2rem;
+    padding-top:10px;
+}
+
+.hiscores-table td.rank, .hiscores-table th.rank {
+    text-align: center;
+}
+
+.hpgnum.active {
+    color: #fff;
+    box-shadow: 0px 0px 10px inset rgb(0 0 0 / 20%);
+    background-position: top, center;
+}
+
+.hpgnum.nav {
+    font-size: 18pt;
+    padding: 0px 10px 4px 10px;
+    line-height: 28px;
+    font-weight: 700;
+}
+
+.hpgnum {
+    display: inline-block;
+    background: rgba(0,0,0,.2);
+    border-radius: 3px;
+    text-align: center;
+    box-shadow: 0px 0px 10px inset rgb(0 0 0 / 20%);
+    padding: 4px 10px;
+    margin-left: 5px;
+    width: 34px;
+}
+
+.pagination {
+    float: right;
+    margin: 15px auto;
+    font-weight:700;
+}
+
+
+a.game-mode-button, input.hiscore-player-search {
+    background: rgb(0,0,0,0.3);
+    padding: 10px 40px;
+    color:#c4c4c4!important;
+    border: none;
+    box-shadow: 0px 1px 12px 2px rgb(0 0 0 / 50%) inset;
+    border-bottom:1px solid rgba(255,255,255,.05);
+    border-radius: 3px;
+    font-weight:700;
+}

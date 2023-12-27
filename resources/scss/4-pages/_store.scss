@@ -1,0 +1,227 @@
+
+/* STORE */
+/* CART */
+
+tr.cart-item {
+    height: 50px;
+    border-bottom: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 0 2px 0 rgba(255,255,255,.05);
+    font-size: .9rem;
+}
+
+.cart-total {
+    text-align: center;
+    font-size: 1.2rem;
+    text-shadow: 0 2px 2px rgba(0,0,0,.5);
+    color: #fff;
+    font-weight: 700;
+}
+
+td.cart-item-qty {
+    color: #b96f28;
+    font-weight: 700;
+}
+
+span.qty-bg {
+    background:rgba(0,0,0,0.2);
+    border-bottom:1px solid rgba(255,255,255,.1);
+    border-radius: 3px;
+    height: 25px;
+    display: inline-block;
+    padding: 1.5px 7.5px;
+}
+
+td.cart-item-title {
+    text-shadow: 0 2px 2px rgba(0,0,0,.5);
+    font-weight: 700;
+}
+
+td.cart-item-price {
+    color: #d4882a;
+    font-weight: 700;
+}
+
+.store-container, .hiscores-container {
+    background:rgba(0,0,0,0.25);
+    border-radius:5px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 14px rgba(0,0,0,0.35) inset;
+    padding:7px;
+}
+
+.store-body {
+    padding: 30px 20px;
+}
+
+.store-item, .vote-item {
+    text-align: center;
+    background:url("/public/images/noise.png") repeat;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,.2);
+}
+
+.disabled {
+    filter: grayscale(100%);
+}
+
+.item-img {
+    margin: 25px auto;
+}
+
+.toplist-img {
+    height:77px;
+    margin:25px auto;
+}
+
+.item-img img {
+    filter:drop-shadow(0 3px 8px rgba(0,0,0,0.6));
+}
+
+.item-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 2px rgba(0,0,0,.5);
+}
+
+.item-price {
+    color: #d4882a;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.item-qty input {
+    color:#8a8a8a;
+    background: none;
+    font-weight: 700;
+    border: none;
+    width: 64px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.item-qty input:focus {
+    outline: none;
+}
+
+.item-qty input::-webkit-outer-spin-button,
+.item-qty input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.item-qty input[type=number] {
+    appearance:textfield;
+    -moz-appearance: textfield;
+  }
+
+.qty-num, .qty-arrow, .add-to-cart {
+    display: inline;
+}
+
+.qty-arrow a:hover {
+    cursor: pointer;
+}
+
+.qty-arrow {
+    z-index: 1;
+    position: relative;
+}
+
+.add-to-cart {
+    background: rgb(172,83,22);
+    background: linear-gradient(0deg, rgba(16,134,122,1) 0%, rgba(32,196,190,1) 100%);
+}
+
+.item-qty {
+    color:#8a8a8a;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow:0 1px 0 rgba(255,255,255,0.1), 0 3px 14px rgba(0,0,0,0.35) inset;
+    width: 112px;
+    margin: 0 auto;
+    padding: 6px 1px 5px 1px;
+}
+
+.section-header {
+    margin-bottom:10px;
+}
+
+#store-header, #hiscores-header {
+    color:#fff;
+    font-family:'Friz Quadrata', serif;
+    text-transform:uppercase;
+}
+
+#store-header img, #hiscores-header img {
+    padding-right:20px;
+    filter:drop-shadow(0 3px 8px rgba(0,0,0,0.6));
+}
+
+.redeem {
+    text-align:right;
+}
+
+.redeem_btn {
+    border-radius:5px;
+    background:url("/public/images/secondary-btn.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:49px;
+    text-transform: uppercase;
+    text-align:center;
+    color:#8a8a8a;
+    font-weight:700;
+    box-shadow:0 3px 7px rgba(0,0,0,0.35);
+    font-size:14pt;
+    padding:10px 0;
+    opacity:0.8;
+    transition:.2s all;
+}
+
+.secondary_btn:hover {
+    color:#fff;
+    opacity:1;
+}
+
+.secondary_btn img {
+    padding-right:20px;
+}
+
+
+.store-categories__item {
+    background: rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
+    box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
+    transition: all ease 300ms;
+
+    &--icon {
+        img {
+            height: 24px;
+            width: 24px;
+            object-fit: contain;
+        }
+    }
+
+    a {
+        color: $color-links-hover;
+    }
+
+    &.active {
+        background: rgba(0,0,0,.35);
+        a {
+            color: $color-primary;
+            text-shadow: 0px 0px 15px rgba($color-primary, 0.4);
+        }
+    }
+
+    &:hover {
+        background: rgba(0,0,0,.35);
+
+        a {
+            color: $color-primary;
+        }
+    }
+
+
+}

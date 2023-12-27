@@ -1,0 +1,49 @@
+
+.register-form, .login-form {
+    margin:0 auto;
+    background:rgba(255,255,255,0.05);
+    box-shadow:0 3px 12px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1) inset;
+    border-radius:5px;
+    text-align:center;
+}
+
+.register-form-section, .login-form-section  {
+    margin-bottom:25px;
+}
+
+.register-form-label, .login-form-label {
+    color:#fff;
+    font-family:'Friz Quadrata', serif;
+    letter-spacing: 10px;
+    text-shadow:0 2px 7px rgba(0,0,0,0.4);
+    margin-bottom:15px;
+}
+
+.register-form input, .register-form input {
+    margin-bottom:7px;
+    font-weight:300;
+    opacity:0.7;
+    transition:.2s all;
+}
+
+.register-form input:hover, .login-form input:hover {
+    opacity:1;
+}
+
+.success-notice {
+    color:#6ad36f;
+    background:rgba(62,131,65,0.1);
+    padding:7px 15px;
+    font-style:italic;
+    margin:5px 30px;
+    border-radius:5px;
+}
+
+.error-notice {
+    color:#da6d82;
+    background:rgba(131,62,75,0.1);
+    padding:7px 15px;
+    font-style:italic;
+    margin:5px 30px;
+    border-radius:5px;
+}

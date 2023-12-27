@@ -1,0 +1,41 @@
+.rank {
+
+    --regular: #e69138;
+    --deluxe: #02cb57;
+    --gold: #abad11;
+    --premier: #e500e8;
+    --elite: #ff0000;
+    --platinum: #81e5fa;
+    --diamond: #f3f3f3;
+    --1percent: #ffff00;
+    --owner: #861717;
+
+    &.regular {
+        color: var(--regular);
+    }
+    &.deluxe {
+        color: var(--deluxe);
+    }
+    &.gold {
+        color: var(--gold);
+    }
+    &.premier {
+        color: var(--premier);
+    }
+    &.elite {
+        color: var(--elite);
+    }
+    &.platinum {
+        color: var(--platinum);
+    }
+    &.diamond {
+        color: var(--diamond);
+    }
+    &.percent {
+        color: var(--1percent);
+    }
+
+    &.owner {
+        color: var(--owner);
+    }
+}

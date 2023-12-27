@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\VoteController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/play', function () {
+    return view('play.index');
+})->name('play.index');
+
+Route::get('/highscores', function () {
+    return view('highscores.index');
+})->name('highscores.index');
+
+Route::get('/checkout', function (Request $request) {
+    $stripePriceId = 'price_deluxe_album';
+
+    $quantity = 1;
+
+    return $request->user()->checkout([$stripePriceId => $quantity], [
+        'success_url' => route('checkout-success'),
+        'cancel_url' => route('checkout-cancel'),
+    ]);
+})->name('checkout');
+
+Route::get('/news/{newsPost}', [\App\Http\Controllers\NewsPostController::class, 'show'])->name('news.show');
+
+//Route::view('checkout.success')->name('checkout-success');
+//Route::view('checkout.cancel')->name('checkout-cancel');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/store', [StoreController::class, 'index'])->name('store.index');
+    Route::get('/vote', [VoteController::class, 'index'])->name('vote.index');
+});
+
+
+
+require __DIR__.'/auth.php';

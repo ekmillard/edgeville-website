@@ -1,0 +1,23 @@
+
+// 1 - MAIN
+@import '1-global/variables';
+@import '1-global/mixin';
+
+// 2 - STYLING
+@import '2-styling/base';
+@import '2-styling/typography';
+@import '2-styling/buttons';
+@import '2-styling/ranks';
+
+// 3 - FRAMEWORK
+@import '3-framework/nav';
+@import '3-framework/slider';
+@import '3-framework/footer';
+
+// 4 - PAGES
+@import '4-pages/home';
+@import '4-pages/login';
+@import '4-pages/play';
+@import '4-pages/store';
+@import '4-pages/hiscores';
+@import '4-pages/profile';

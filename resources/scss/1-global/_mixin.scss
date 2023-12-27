@@ -1,0 +1,28 @@
+// Responsive breakpoint manager
+// @access public
+// @param {String} $breakpoint - Breakpoint
+// @requires $breakpoints
+@mixin mq($breakpoint) {
+    $raw-query: map-get($breakpoints, $breakpoint);
+  
+    @if $raw-query {
+      $query: if(
+        type-of($raw-query) == 'string',
+        unquote($raw-query),
+        inspect($raw-query)
+      );
+  
+      @media #{$query} {
+        @content;
+      }
+    } @else {
+      @error 'No value found for `#{$breakpoint}`. '
+           + 'Please make sure it is defined in `$breakpoints` map.';
+    }
+  }
+
+  @mixin copyright {
+    /* SCSS/Front-end developed by Calum - GFXDistrict.com */
+    /* Created for Name-2022. */
+    /* This is the compiled SCSS file! Do NOT make changes or edits here. */
+  }

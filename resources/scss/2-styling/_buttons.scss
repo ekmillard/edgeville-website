@@ -1,0 +1,194 @@
+ // button variables
+ $btn-padding: .5rem 1.2rem;
+ $btn-border-radius: 0.2rem;
+ $btn-font-size: 14px;
+ $btn-font-color: hsl(216, 29%, 7%);
+
+ // button types e.g btn full-w
+ $btn-types: "full-w", "small", "white";
+
+ // Button Mixins
+
+ @mixin btn-default() {
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+
+     padding: $btn-padding;
+     border: none;
+     border-radius: $btn-border-radius;
+
+     text-align: center;
+     text-decoration: none;
+     text-transform: uppercase;
+     font-weight: bold;
+     font-size: $btn-font-size;
+     color: $btn-font-color;
+     background-color: $color-primary;
+     cursor: pointer;
+
+     position: relative;
+     z-index: 1;
+     transition: all 0.2s;
+     &:hover, &:active, &:focus, &:visited, &:focus-visible {
+         color: $btn-font-color;
+         background-color: lighten($color-primary, 5%);
+     }
+
+     i:first-child {
+         margin-right: 0.5rem;
+     }
+
+     &:last-child {
+         margin-right: 0;
+     }
+
+     &:active {
+     transform: scale(0.9);
+     }
+ }
+
+ @mixin btn($type: 'default') {
+     @include btn-default;
+
+
+ }
+ // Button Classes
+
+ .btn {
+     @include btn();
+ }
+
+ .btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: $btn-font-color;
+    background-color: lighten($color-primary, 5%);
+ }
+
+ .btn-danger {
+
+    &.btn {
+        background-color: var(--bs-btn-bg);
+
+        &:hover {
+            color: var(--bs-btn-hover-color);
+            background-color: var(--bs-btn-hover-bg);
+            border-color: var(--bs-btn-hover-border-color);
+        }
+    }
+ }
+
+ .btn.large {
+     padding: 1rem 2rem;
+ }
+
+ .btn {
+
+     & + & {
+         margin-left: 1em;
+     }
+ }
+ .btn.full-width {
+    display: block;
+    width: 100%;
+
+    & + & {
+        margin-left: 0em;
+    }
+ }
+
+ .btn.small {
+    padding: 5px 10px;
+    font-size: 14px;
+ }
+
+
+ // Icons within buttons
+
+  .btn > svg {
+     fill: currentcolor;
+     // … etc.
+   }
+
+   // Inline button
+
+   .btn.inline {
+     display: inline-block;
+   }
+
+   .btn.focus, .btn:focus, button:focus {
+     outline: 0;
+     box-shadow: none;
+     text-decoration: none;
+ }
+
+
+ /*Play Now Bar*/
+
+.play-button {
+    content: "";
+    background: url("/public/images/new-play-btn.png") no-repeat;
+    height: 84px;
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: 0px;
+
+    &:hover {
+
+        filter: brightness(120%);
+        cursor: pointer;
+    }
+}
+
+
+
+@media (max-width: 487px) {
+    .button {
+        height: 56px;
+        width: 182px;
+        top: 16px !important;
+    }
+}
+
+
+
+.vote-btn, .hs-btn {
+    font-family: 'Friz Quadrata', serif;
+    text-transform:uppercase;
+    font-size:14pt;
+    color:#fff!important;
+    opacity:0.7;
+    transition:.2s all;
+    font-weight:700;
+}
+
+.discord-connect, .store-checkout, .register-btn, .login-btn, .btn_text {
+    font-family: 'Friz Quadrata', serif;
+    text-transform:uppercase;
+    font-size:14pt;
+    color:#fff!important;
+    opacity:0.7;
+    transition:.2s all;
+    font-weight:700;
+}
+
+.discord-connect:hover, .store-checkout:hover, .vote-btn:hover, .hs-btn:hover, .register-btn:hover, .login-btn:hover, .btn_text:hover {
+    opacity:1;
+}
+
+.btn_lg, .btn_primary {
+    background-image:url("/public/images/btn-l.png"), url("/public/images/btn-r.png"), url("/public/images/btn.png");
+    background-repeat:no-repeat, no-repeat, repeat-x;
+    background-position:left, right, center;
+    height:56px;
+    padding:14px 0;
+}
+
+.btn_red, .btn_danger {
+    background-image:url("/public/images/btn-red-l.png"), url("/public/images/btn-red-r.png"), url("/public/images/btn-red.png");
+    background-repeat:no-repeat, no-repeat, repeat-x;
+    background-position:left, right, center;
+    height:56px;
+    padding:14px 0;
+}
+

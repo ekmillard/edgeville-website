@@ -1,0 +1,100 @@
+/*Slider Area*/
+
+#slider {
+    position: relative;
+    z-index: 0;
+    margin-top: calc(-86px - 3rem);
+}
+
+.slider-bg {
+    text-align: center;
+}
+
+.slider-text-height {
+    height: 28vw;
+    z-index: -1;
+}
+.slider-bg {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+
+    img {
+        object-fit: cover;
+        object-position: center;
+        height: auto;
+    }
+}
+
+@include mq('extra-wide-desktop') {
+    .slider-text-height {
+        height: 26vw;
+    }
+}
+@include mq('laptop') {
+    
+    .slider-text-height {
+        height: 300px;
+    }
+
+    .slider-bg {
+
+        img {
+            height: 640px;
+        }
+    }
+}
+
+@include mq('mobile') {
+    
+    .slider-text-height {
+        height: 240px;
+    }
+
+    .slider-bg {
+
+        img {
+            height: 540px;
+        }
+    }
+}
+
+@include mq('tiny') {
+    
+    #slider {
+        margin-top: calc(-64px - 4rem);
+    }
+    .slider-text-height {
+        height: 150px;
+    }
+
+    .slider-bg {
+
+        img {
+            height: 350px;
+        }
+    }
+}
+
+
+
+@media(max-width:800px) {
+
+    .button {
+        top: -15px !important;
+    }
+}
+
+.carousel-control-next, .carousel-control-prev {
+    top: 18vw;
+    height: 50px;
+}
+
+
+.carousel-control-next, .carousel-control-prev {
+    opacity: .5 !important;
+}
+
+.carousel-control-next:hover, .carousel-control-prev:hover {
+    opacity: 1 !important;
+}
