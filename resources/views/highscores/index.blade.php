@@ -30,9 +30,9 @@
                             <h2 id="hiscores-header">
                                 <img src="{{asset('images/hiscores-icon.png')}}" alt="Highscores Icon"/>
                                 @if($skill == 'overall_xp')
-                                    Overall Highscores
+                                    {{ request('game_mode', 'Regular') }} Overall Highscores
                                 @else
-                                    {{ ucfirst(str_replace('_xp', '', $skill)) }} Highscores
+                                     {{ request('game_mode', 'Regular') .' '. ucfirst(str_replace('_xp', '', $skill)) }} Highscores
                                 @endif
                             </h2>
                         </div>
