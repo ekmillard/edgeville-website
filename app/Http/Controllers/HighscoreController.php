@@ -70,13 +70,13 @@ class HighscoreController extends Controller
 
             $output = '';
             if (count($data) > 0) {
-                $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+                $output = '<ul class="dropdown-menu" style="display: block; position: relative; z-index: 1">';
                 foreach ($data as $row) {
-                    $output .= '<li class="list-group-item">' . $row->username . '</li>';
+                    $output .= '<li><a class="dropdown-item">'. htmlspecialchars($row->username, ENT_QUOTES, 'UTF-8') . '</a></li>';
                 }
                 $output .= '</ul>';
             } else {
-                $output .= '<li class="list-group-item">' . 'No results' . '</li>';
+                $output .= '<li><a class="dropdown-item">No results.</a></li>';
             }
             return $output;
         }

@@ -34,8 +34,8 @@
         });
 
         $(document).on('click', 'li', function(){
-            $('#username').val($(this).text());
-            $('#userList').html("");
+            var username = $(this).text();
+            window.location.href = "{{ url('highscores/player') }}/" + username;
         });
     });
 </script>
