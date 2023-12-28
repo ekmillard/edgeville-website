@@ -36,6 +36,9 @@ class Highscores extends Model
         'thieving_xp',
         'slayer_xp',
         'farming_xp',
+        'runecraft_xp',
+        'hunter_xp',
+        'construction_xp'
     ];
 
 

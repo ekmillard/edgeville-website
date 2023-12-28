@@ -26,8 +26,7 @@
                     <section id="hiscores">
                         <div class="section-header row">
                             <h2 id="hiscores-header">
-                                <img
-                                    src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->user->username }}'s Highscores
+                                <img src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->username }}'s Highscores
                             </h2>
                         </div>
 
@@ -65,13 +64,15 @@
                                     </thead>
                                     <tbody>
                                     @foreach(ExperienceHelper::$SKILLS_TO_GIF as $skill => $gif)
-                                        <tr>
-                                            <td class="rank"><img src="{{ asset('images/skills/' . $gif) }}"
-                                                                  alt="{{ ucfirst($skill) }}"> {{ ucfirst($skill) }}
-                                            </td>
-                                            <td class="hiscores-level">{{ ExperienceHelper::getLevelForXp($highscore->{$skill . '_xp'}) }}</td>
-                                            <td class="hiscores-exp">{{ number_format($highscore->{$skill . '_xp'}) }}</td>
-                                        </tr>
+                                        @if($skill != 'overall')
+                                            <tr>
+                                                <td class="rank"><img src="{{ asset('images/skills/' . $gif) }}"
+                                                                      alt="{{ ucfirst($skill) }}"> {{ ucfirst($skill) }}
+                                                </td>
+                                                <td class="hiscores-level">{{ ExperienceHelper::getLevelForXp($highscore->{$skill . '_xp'}) }}</td>
+                                                <td class="hiscores-exp">{{ number_format($highscore->{$skill . '_xp'}) }}</td>
+                                            </tr>
+                                        @endif
                                     @endforeach
                                     </tbody>
                                 </table>

@@ -35,6 +35,9 @@ return new class extends Migration
             $table->integer('thieving_xp')->default(0);
             $table->integer('slayer_xp')->default(0);
             $table->integer('farming_xp')->default(0);
+            $table->integer('runecraft_xp')->default(0);
+            $table->integer('hunter_xp')->default(0);
+            $table->integer('construction_xp')->default(0);
             $table->timestamps();
         });
     }
