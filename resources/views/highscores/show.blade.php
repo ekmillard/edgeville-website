@@ -26,9 +26,33 @@
                     <section id="hiscores">
                         <div class="section-header row">
                             <h2 id="hiscores-header">
-                                <img src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->game_mode .' ' . $highscore->user->username }}'s Highscores
+                                <img
+                                    src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->user->username }}'s Highscores
                             </h2>
                         </div>
+
+                        <div class="hiscores-container">
+                            <div class="hiscores-table table-responsive-md">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="hiscores-rank rank" scope="col" style="width:33.33%;">Game Mode</th>
+                                        <th class="hiscores-level" scope="col" style="width:33.33%;">Combat Level</th>
+                                        <th class="hiscores-exp" scope="col" style="width:33.33%;">Total Level</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="rank"> @if($highscore->game_mode != 'Regular') <img src="{{asset('images/icons/'.$highscore->game_mode.'.png')}}" alt="Rank Icon"/> @endif</td>
+                                        <td class="hiscores-level">{{ ExperienceHelper::getCombatLevel($highscore) }}</td>
+                                        <td class="hiscores-exp">{{ $highscore->getTotalLevel() }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
                         <div class="hiscores-container">
                             <div class="hiscores-table table-responsive-md">
                                 <table class="table">
@@ -40,9 +64,11 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(ExperienceHelper::$SKILLS as $skill)
+                                    @foreach(ExperienceHelper::$SKILLS_TO_GIF as $skill => $gif)
                                         <tr>
-                                            <td class="rank">{{ ucfirst($skill) }}</td>
+                                            <td class="rank"><img src="{{ asset('images/skills/' . $gif) }}"
+                                                                  alt="{{ ucfirst($skill) }}"> {{ ucfirst($skill) }}
+                                            </td>
                                             <td class="hiscores-level">{{ ExperienceHelper::getLevelForXp($highscore->{$skill . '_xp'}) }}</td>
                                             <td class="hiscores-exp">{{ number_format($highscore->{$skill . '_xp'}) }}</td>
                                         </tr>

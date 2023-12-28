@@ -16,7 +16,7 @@
                                 <form action="{{ route('highscores.index') }}" method="GET">
                                     <input type="text" name="username" placeholder="Search Player" class="w-100" value="{{ request('username') }}">
                                     <button type="submit" class="d-block w-100 input-submit hs-btn btn_lg text-center mt-3">Search</button>
-                                    <input type="hidden" name="game_mode" value="{{ request('game_mode', 'Regular') }}">
+                                    <input type="hidden" name="game_mode" value="{{ request('game_mode', 'All') }}">
                                     <input type="hidden" name="skill" value="{{ request('skill', 'overall_xp') }}">
                                 </form>
                             </div>
@@ -29,8 +29,8 @@
                         <div class="section-header row">
                             <h2 id="hiscores-header">
                                 <img src="{{asset('images/hiscores-icon.png')}}" alt="Highscores Icon"/>
-                                @if($skill == 'overall_xp')
-                                    {{ request('game_mode', 'Regular') }} Overall Highscores
+                                  @if($skill == 'overall_xp')
+                                    {{ request('game_mode', 'All') }}-Time Overall Highscores
                                 @else
                                      {{ request('game_mode', 'Regular') .' '. ucfirst(str_replace('_xp', '', $skill)) }} Highscores
                                 @endif
@@ -43,6 +43,9 @@
                                     <tr>
                                         <th class="hiscores-rank rank" scope="col" style="width:10%;">Rank</th>
                                         <th class="hiscores-player" scope="col" style="width:50%;">Player Name</th>
+                                        <th class="hiscores-level" scope="col" style="width:20%;">
+                                           Total Level
+                                        </th>
                                         <th class="hiscores-level" scope="col" style="width:20%;">
                                             @if($skill == 'overall_xp')
                                                 Combat Level
@@ -59,8 +62,11 @@
                                             <td class="rank">{{ ($hiscores->currentPage() - 1) * $hiscores->perPage() + $index + 1 }}</td>
                                             <td class="hiscores-username">
                                                 <a href="{{ route('highscores.player', ['username' => $highscore->username]) }}">
-                                                    {{ $highscore->username }}
+                                                    @if($highscore->game_mode != 'Regular') <img src="{{asset('images/icons/'.$highscore->game_mode.'.png')}}" alt="Rank Icon"/> @endif {{ $highscore->username }}
                                                 </a>
+                                            </td>
+                                            <td class="hiscores-level">
+                                                    {{ $highscore->getTotalLevel() }}
                                             </td>
                                             <td class="hiscores-level">
                                                 @if($skill == 'overall_xp')

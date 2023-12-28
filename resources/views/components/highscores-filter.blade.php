@@ -5,7 +5,7 @@
         <img src="{{asset('images/filter-icon.png')}}"> <span class="section-title-text">Filters</span>
     </div>
     @php
-        $currentGameMode = request('game_mode', 'Regular');
+        $currentGameMode = request('game_mode', 'All');
         $currentSkill = request('skill');
     @endphp
 
@@ -15,6 +15,8 @@
             {{ $currentGameMode }}
         </a>
         <ul class="dropdown-menu" aria-labelledby="gameMode">
+            <li><a class="dropdown-item {{ $currentGameMode == 'All' ? 'active' : '' }}"
+                   href="{{ route('highscores.index', ['game_mode' => 'All']) }}">All</a></li>
             <li><a class="dropdown-item {{ $currentGameMode == 'Regular' ? 'active' : '' }}"
                    href="{{ route('highscores.index', ['game_mode' => 'Regular']) }}">Regular</a></li>
             <li><a class="dropdown-item {{ $currentGameMode == 'Ironman' ? 'active' : '' }}"

@@ -11,11 +11,17 @@ class HighscoreController extends Controller
 {
     public function index(Request $request)
     {
-        $gameMode = $request->input('game_mode', 'Regular');
+        $gameMode = $request->input('game_mode', 'All');
         $skill = $request->input('skill', 'overall_xp');
         $username = $request->input('username');
 
-        $query = Highscores::where('game_mode', $gameMode);
+        // Initialize the query
+        $query = Highscores::query();
+
+        // Modify here to ignore the game mode filter when 'All' is selected
+        if ($gameMode !== 'All') {
+            $query->where('game_mode', $gameMode);
+        }
 
         if ($username) {
             $query->where('username', 'like', '%' . $username . '%');

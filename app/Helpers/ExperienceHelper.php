@@ -73,6 +73,7 @@ class ExperienceHelper
         return 1;
     }
 
+
     public static function getCombatLevel($highscore)
     {
         $attack = self::getLevelForXp($highscore->attack_xp);
