@@ -26,7 +26,7 @@
                     <section id="hiscores">
                         <div class="section-header row">
                             <h2 id="hiscores-header">
-                                <img src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->user->username }}'s Highscores
+                                <img src="{{asset('images/hiscores-icon.png')}}"/>{{ $highscore->game_mode .' ' . $highscore->user->username }}'s Highscores
                             </h2>
                         </div>
                         <div class="hiscores-container">
