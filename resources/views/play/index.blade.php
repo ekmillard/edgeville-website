@@ -14,7 +14,7 @@
                         <div class="col">
                             <div class="vote-item p-3 p-lg-4">
                                 <h4 class="mb-1 text-center text-white text-uppercase">Launcher Client</h4>
-                                <p class="mb-2 mb-lg-3 text-muted">100kb | .exe file</p>
+                                <p class="mb-2 mb-lg-3 text-muted">100kb | .launcher file</p>
                                 <img src="{{asset('images/download-launcher.png')}}" class="game-download__icon" lazy>
                                 <a href="" file class="d-block w-100 vote-btn btn_lg mt-2 mt-lg-3">Download</a>
                             </div>
@@ -23,7 +23,7 @@
                             <div class="vote-item p-3 pt-5 p-lg-4 py-lg-5 position-relative">
                                 <div class="badge position-absolute top-0 mt-3 d-block success-notice start-0 end-0">Recommended</div>
                                 <h4 class="mb-1 text-center text-white text-uppercase">EXE Client</h4>
-                                <p class="mb-2 mb-lg-3 text-muted">100kb | .jar file</p>
+                                <p class="mb-2 mb-lg-3 text-muted">100kb | .exe file</p>
                                 <img src="{{asset('images/download-exe.png')}}" class="game-download__icon" lazy>
 
                                 <a href="" file class="d-block w-100 vote-btn btn_lg mt-2 mt-lg-3">Download</a>
