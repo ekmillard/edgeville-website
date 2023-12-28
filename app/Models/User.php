@@ -43,4 +43,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    public function highscores()
+    {
+        return $this->hasMany(Highscores::class, 'username', 'username');
+    }
+
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HighscoreController;
+use App\Http\Controllers\NewsPostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\VoteController;
@@ -24,9 +26,11 @@ Route::get('/play', function () {
     return view('play.index');
 })->name('play.index');
 
-Route::get('/highscores', function () {
-    return view('highscores.index');
-})->name('highscores.index');
+
+// Routes for highscores
+Route::get('/highscores', [HighscoreController::class, 'index'])->name('highscores.index');
+Route::get('/highscores/player/{username}', [HighscoreController::class, 'showPlayer'])->name('highscores.player');
+
 
 Route::get('/checkout', function (Request $request) {
     $stripePriceId = 'price_deluxe_album';
@@ -39,7 +43,7 @@ Route::get('/checkout', function (Request $request) {
     ]);
 })->name('checkout');
 
-Route::get('/news/{newsPost}', [\App\Http\Controllers\NewsPostController::class, 'show'])->name('news.show');
+Route::get('/news/{newsPost}', [NewsPostController::class, 'show'])->name('news.show');
 
 //Route::view('checkout.success')->name('checkout-success');
 //Route::view('checkout.cancel')->name('checkout-cancel');

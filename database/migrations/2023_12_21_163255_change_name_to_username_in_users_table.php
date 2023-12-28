@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            // Change 'name' column to 'username' and make it unique
             $table->renameColumn('name', 'username')->unique()->change();
         });
     }
