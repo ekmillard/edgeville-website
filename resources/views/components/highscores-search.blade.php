@@ -18,7 +18,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#username').on('keyup', function () {
-            var query = $(this).val();
+            const query = $(this).val();
             if (query.length >= 2) {
                 $.ajax({
                     url:"{{ route('autocomplete.search') }}",
@@ -34,7 +34,7 @@
         });
 
         $(document).on('click', 'li', function(){
-            var username = $(this).text();
+            const username = $(this).text();
             window.location.href = "{{ url('highscores/player') }}/" + username;
         });
     });
