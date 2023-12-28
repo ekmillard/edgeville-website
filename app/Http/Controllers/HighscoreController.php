@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ExperienceHelper;
 use App\Models\Highscores;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -60,4 +61,25 @@ class HighscoreController extends Controller
 
         return view('highscores.show', compact('highscore'));
     }
+
+    public function autocompleteSearch(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = User::where('username', 'LIKE', $request->username . '%')
+                ->get();
+
+            $output = '';
+            if (count($data) > 0) {
+                $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
+                foreach ($data as $row) {
+                    $output .= '<li class="list-group-item">' . $row->username . '</li>';
+                }
+                $output .= '</ul>';
+            } else {
+                $output .= '<li class="list-group-item">' . 'No results' . '</li>';
+            }
+            return $output;
+        }
+    }
+
 }

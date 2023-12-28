@@ -27,9 +27,12 @@ Route::get('/play', function () {
 })->name('play.index');
 
 
-// Routes for highscores
-Route::get('/highscores', [HighscoreController::class, 'index'])->name('highscores.index');
-Route::get('/highscores/player/{username}', [HighscoreController::class, 'showPlayer'])->name('highscores.player');
+Route::controller(HighscoreController::class)->group(function(){
+    Route::get('/highscores', 'index')->name('highscores.index');
+    Route::get('/highscores/player/{username}', 'showPlayer')->name('highscores.player');
+    Route::get('/autocomplete-search', 'autocompleteSearch')->name('autocomplete.search');
+});
+
 
 
 Route::get('/checkout', function (Request $request) {
