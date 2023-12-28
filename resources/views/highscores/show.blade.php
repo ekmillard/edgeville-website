@@ -43,7 +43,7 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td class="rank"> @if($highscore->game_mode != 'Regular') <img src="{{asset('images/icons/'.$highscore->game_mode.'.png')}}" alt="Rank Icon"/> @endif</td>
+                                        <td class="rank"> @if($highscore->game_mode != 'Regular') <img src="{{asset('images/icons/'.$highscore->game_mode.'.png')}}" alt="Rank Icon"/>@else Regular @endif</td>
                                         <td class="hiscores-level">{{ ExperienceHelper::getCombatLevel($highscore) }}</td>
                                         <td class="hiscores-exp">{{ $highscore->getTotalLevel() }}</td>
                                     </tr>
