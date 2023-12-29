@@ -48,4 +48,9 @@ class User extends Authenticatable
         return $this->hasMany(Highscores::class, 'username', 'username');
     }
 
+    public function twoFactorSecurity()
+    {
+        return $this->hasOne(TwoFactorSecurity::class);
+    }
+
 }

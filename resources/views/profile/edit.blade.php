@@ -8,7 +8,8 @@
                     <div class="col-12 col-lg-8">
                         <div
                             class="content-box d-flex flex-column justify-content-center flex-sm-row justify-content-sm-between align-items-center gap-4 gap-sm-2 p-4 p-lg-5 mb-3 mb-lg-4">
-                            <div class="d-flex flex-column justify-content-center flex-sm-row justify-content-sm-start align-items-center gap-2 gap-lg-4">
+                            <div
+                                class="d-flex flex-column justify-content-center flex-sm-row justify-content-sm-start align-items-center gap-2 gap-lg-4">
                                 <div class="profile-picture rounded-circle overflow-hidden">
                                     <img src="{{asset('images/avatar-large.jpg')}}" eager>
                                 </div>
@@ -55,7 +56,17 @@
                                     <div class="d-flex flex-row gap-2">
                                         <p class="h5 mb-0 text-primary text-uppercase">3</p>
                                         <a href="vote" data-bs-toggle="tooltip" data-bs-title="Add Votes">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><title>export</title><g stroke-width="1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5,11.5H2A1.5,1.5,0,0,1,.5,10V.5"></path><polyline points="6.5 0.5 11.5 0.5 11.5 5.5" stroke="currentColor"></polyline><line x1="11.5" y1="0.5" x2="5.5" y2="6.5" stroke="currentColor"></line></g></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                 viewBox="0 0 12 12"><title>export</title>
+                                                <g stroke-width="1" fill="none" stroke="currentColor"
+                                                   stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M11.5,11.5H2A1.5,1.5,0,0,1,.5,10V.5"></path>
+                                                    <polyline points="6.5 0.5 11.5 0.5 11.5 5.5"
+                                                              stroke="currentColor"></polyline>
+                                                    <line x1="11.5" y1="0.5" x2="5.5" y2="6.5"
+                                                          stroke="currentColor"></line>
+                                                </g>
+                                            </svg>
                                         </a>
                                     </div>
 
@@ -157,7 +168,8 @@
                                             <label class="text-white">Email</label>
                                         </div>
                                         <div class="col-9">
-                                            <input class="w-100 mb-0" type="text" placeholder="{{auth()->user()->email}}" disable
+                                            <input class="w-100 mb-0" type="text"
+                                                   placeholder="{{auth()->user()->email}}" disable
                                                    readonly>
                                         </div>
                                         <div class="col-3">
@@ -215,24 +227,39 @@
                                     <img src="{{asset('images/2fa.png')}}">
                                     <span class="section-title-text">2FA</span>
                                 </div>
-                                <p class="mb-0 badge bg-danger d-flex flex-row align-items-center gap-1">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    Not Activated
-                                </p>
+                                @if(auth()->user()->twoFactorSecurity == null || !auth()->user()->twoFactorSecurity->google2fa_enable)
+                                    <p class="mb-0 badge bg-danger d-flex flex-row align-items-center gap-1">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Not Activated
+                                    </p>
+                                @else
+                                    <p class="mb-0 badge bg-success d-flex flex-row align-items-center gap-1">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Activated
+                                    </p>
+                                @endif
 
                             </div>
-                            <div class="p-4">
-                                <p class="mb-1 text-white fw-bold">Why you should use 2-step verification</p>
-                                <p class="mb-0">
-                                    2-step verification drastically reduces the chances of having your account stolen by
-                                    someone else. Why? Because hackers
-                                    would have to not only get your password and your username, they'd have to get a
-                                    hold of your phone.
-                                </p>
-                                <button type="button" class="btn_text btn_primary w-100 px-2 px-lg-4 mt-3 mt-lg-4">
-                                    Activate 2FA
-                                </button>
-                            </div>
+                            <form method="GET" action="{{ route('2faSettings') }}">
+                                @csrf
+                                <div class="p-4">
+                                    <p class="mb-1 text-white fw-bold">Why you should use 2-step verification</p>
+                                    <p class="mb-0">
+                                        2-step verification drastically reduces the chances of having your account
+                                        stolen by
+                                        someone else. Why? Because hackers
+                                        would have to not only get your password and your username, they'd have to get a
+                                        hold of your phone.
+                                    </p>
+                                    <x-primary-button class="w-100 px-2 px-lg-4 mt-3 mt-lg-4">
+                                        @if(auth()->user()->twoFactorSecurity == null || !auth()->user()->twoFactorSecurity->google2fa_enable)
+                                            {{ __('Activate 2FA') }}
+                                        @else
+                                            {{ __('Remove 2FA') }}
+                                        @endif
+                                    </x-primary-button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

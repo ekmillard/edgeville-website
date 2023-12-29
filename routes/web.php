@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\TwoFactorSecurityController;
 use App\Http\Controllers\HighscoreController;
 use App\Http\Controllers\NewsPostController;
 use App\Http\Controllers\ProfileController;
@@ -52,7 +53,7 @@ Route::get('/news/{newsPost}', [NewsPostController::class, 'show'])->name('news.
 //Route::view('checkout.cancel')->name('checkout-cancel');
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', '2fa'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -61,6 +62,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/vote', [VoteController::class, 'index'])->name('vote.index');
 });
 
+Route::group(['prefix'=>'2fa'], function(){
+    Route::get('/',[TwoFactorSecurityController::class, 'show2faForm'])->name('2faSettings');
+    Route::post('/generateSecret',[TwoFactorSecurityController::class, 'generate2faSecret'])->name('generate2faSecret');
+    Route::post('/enable2fa',[TwoFactorSecurityController::class, 'enable2fa'])->name('enable2fa');
+    Route::post('/disable2fa',[TwoFactorSecurityController::class, 'disable2fa'])->name('disable2fa');
 
+    // 2fa middleware
+    Route::post('/2faVerify', function () {
+        return redirect(URL()->previous());
+    })->name('2faVerify')->middleware('2fa');
+});
 
 require __DIR__.'/auth.php';
