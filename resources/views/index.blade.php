@@ -19,7 +19,7 @@
                                         <div class="post-content">
                                             {{ Str::limit(trim(html_entity_decode(strip_tags($post->content))), 350, '...') }}
                                         </div>
-                                        <div class="read-more-button">
+                                        <div class="badge position- top-0 mt-3 d-block read-more-button">
                                             <a href="{{ route('news.show', $post) }}" class="btn btn-primary">Read
                                                 More</a>
                                         </div>

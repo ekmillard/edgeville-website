@@ -83,6 +83,23 @@ td.cart-item-price {
     text-shadow: 0 2px 2px rgba(0,0,0,.5);
 }
 
+.item-label-sec {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+}
+
+.store-coins {
+  color: #ebbd34;
+  background: rgba(242, 201, 80, 0.1);
+  padding: 7px 15px;
+  text-transform: uppercase;
+  font-style: bold;
+  margin: 5px 30px;
+  border-radius: 5px;
+}
+
 .item-price {
     color: #d4882a;
     font-size: 1.4rem;
@@ -187,9 +204,8 @@ td.cart-item-price {
     padding-right:20px;
 }
 
-
 .store-categories__item {
-    background: rgba(0,0,0,.15);
+    background: rgba(0, 0, 0,.15);
     border-bottom: 1px solid rgba(255,255,255,.1);
     -webkit-box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
     box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
@@ -217,6 +233,44 @@ td.cart-item-price {
 
     &:hover {
         background: rgba(0,0,0,.35);
+
+        a {
+            color: $color-primary;
+        }
+    }
+
+
+}
+
+.store-categories__feat {
+    background: rgba(240, 156, 46,.15);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    -webkit-box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
+    box-shadow: 0 0 14px rgba(0,0,0,.35) inset;
+    transition: all ease 300ms;
+
+    &--icon {
+        img {
+            height: 24px;
+            width: 24px;
+            object-fit: contain;
+        }
+    }
+
+    a {
+        color: $color-links-hover;
+    }
+
+    &.active {
+        background: rgba(71, 43, 6,.35);
+        a {
+            color: $color-primary;
+            text-shadow: 0px 0px 15px rgba($color-primary, 0.4);
+        }
+    }
+
+    &:hover {
+        background: rgba(71, 43, 6,.35);
 
         a {
             color: $color-primary;

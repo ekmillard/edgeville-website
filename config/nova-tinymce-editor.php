@@ -52,6 +52,7 @@ return [
         'autoresize',
         'preview',
         'emoticons',
+        'accordion',
 
 
 
@@ -61,7 +62,7 @@ return [
     'toolbar' => [
         'undo redo restoredraft | h2 h3 h4 |
                  bold italic underline strikethrough blockquote removeformat emoticons fontsizeinput fontfamily forecolor backcolor |
-                 align bullist numlist outdent indent | image link anchor table | code fullscreen spoiler | preview',
+                 align bullist numlist outdent indent | image media link anchor table | code fullscreen spoiler accordion | preview',
     ],
 
     /**

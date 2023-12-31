@@ -1308,6 +1308,26 @@ table {
   border-radius: 5px;
 }
 
+.store-notice {
+  color: #ef972f;
+  background: rgba(254, 167, 85, 0.1);
+  padding: 7px 15px;
+  text-transform: uppercase;
+  font-style: bold;
+  margin: 5px 30px;
+  border-radius: 5px;
+}
+
+.store-coins {
+  color: #ebbd34;
+  background: rgba(242, 201, 80, 0.1);
+  padding: 7px 15px;
+  text-transform: uppercase;
+  font-style: bold;
+  margin: 5px 30px;
+  border-radius: 5px;
+}
+
 .error-notice {
   color: #da6d82;
   background: rgba(131, 62, 75, 0.1);
@@ -1407,6 +1427,19 @@ td.cart-item-price {
 
 .item-label {
   font-size: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.item-label-sec {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+}
+
+.item-des {
+  font-size: 0.8rem;
   font-weight: 700;
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
@@ -1523,6 +1556,14 @@ td.cart-item-price {
 
 .store-categories__item {
   background: rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: 0 0 14px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.35) inset;
+  -webkit-transition: all ease 300ms;
+  transition: all ease 300ms;
+}
+.store-categories__feat {
+  background: rgba(240, 156, 46, 0.15);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   -webkit-box-shadow: 0 0 14px rgba(0, 0, 0, 0.35) inset;
   box-shadow: 0 0 14px rgba(0, 0, 0, 0.35) inset;
