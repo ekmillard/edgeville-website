@@ -8,8 +8,6 @@
             <input type="text" name="username" id="username" placeholder="Search Player" class="w-100" value="{{ request('username') }}">
             <div id="userList"></div>
             <button type="submit" class="d-block w-100 input-submit hs-btn btn_lg text-center mt-3">Search</button>
-            <input type="hidden" name="game_mode" value="{{ request('game_mode', 'All') }}">
-            <input type="hidden" name="skill" value="{{ request('skill', 'overall_xp') }}">
         </form>
     </div>
 </div>
