@@ -59,7 +59,6 @@ class Highscores extends Model
             'prayer_xp', 'magic_xp', 'cooking_xp', 'woodcutting_xp', 'fletching_xp',
             'fishing_xp', 'firemaking_xp', 'crafting_xp', 'smithing_xp', 'mining_xp',
             'herblore_xp', 'agility_xp', 'thieving_xp', 'slayer_xp', 'farming_xp',
-            // Add or remove skills based on your application
         ];
 
         foreach ($skills as $skill) {
