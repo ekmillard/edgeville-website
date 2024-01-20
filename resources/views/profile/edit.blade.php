@@ -7,7 +7,7 @@
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-3 mb-3 mb-lg-4">
                 <!-- User Stat Components -->
                 <x-profile.user-stat-box title="Rank" value="Owner"/>
-                <x-profile.user-stat-box title="Total Votes" :value="\App\Models\Vote::where('username', auth()->user()->username)->count() "/>
+                <x-profile.user-stat-box title="Total Votes" :value="$totalVotes"/>
                 <x-profile.user-stat-box title="Total Spent" value="$360"/>
             </div>
 
