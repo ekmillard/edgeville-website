@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\VoteController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,6 @@ Route::controller(HighscoreController::class)->group(function(){
 });
 
 
-
 Route::get('/checkout', function (Request $request) {
     $stripePriceId = 'price_deluxe_album';
 
@@ -49,8 +49,6 @@ Route::get('/checkout', function (Request $request) {
 
 Route::get('/news/{newsPost}', [NewsPostController::class, 'show'])->name('news.show');
 
-//Route::view('checkout.success')->name('checkout-success');
-//Route::view('checkout.cancel')->name('checkout-cancel');
 
 
 Route::middleware(['auth', '2fa'])->group(function () {
@@ -59,6 +57,7 @@ Route::middleware(['auth', '2fa'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/store', [StoreController::class, 'index'])->name('store.index');
+    Route::get('/callbacks/{vote_site_id}/{username?}', [VoteController::class, 'handleVote'])->name('process.vote');
     Route::get('/vote', [VoteController::class, 'index'])->name('vote.index');
 });
 

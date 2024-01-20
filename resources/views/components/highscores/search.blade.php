@@ -1,7 +1,9 @@
 <div class="sidebar-hs sidebar-container mb-3 mb-lg-4">
     <div class="section-title">
         <img src="{{asset('images/user-searchicon.png')}}"> <span
-            class="section-title-text ms-2">Search Player</span>
+            class="section-title-text ms-2">
+            Search Player
+        </span>
     </div>
     <div class="search-player p-4">
         <form action="{{ route('highscores.index') }}" method="GET">

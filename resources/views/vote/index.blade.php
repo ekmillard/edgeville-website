@@ -1,72 +1,11 @@
 <x-app-layout>
-    <div class="container">
-        <div class="wrapper p-4 p-lg-5">
-            <div id="notice-bg" class="mb-3 mb-lg-5">
-                <div id="notice-bar">
-                    <p><span class="accent"><img src="{{asset('images/notice-icon.png')}}" />Why should I vote?</span> By voting for us on these toplists, you help us grow our community. <a href="#">Learn how to redeem your rewards!</a></p>
-                </div>
+    <x-vote.container>
+        @forelse($voteSites as $site)
+            <x-vote.site :site="$site"/>
+        @empty
+            <div class="col-12">
+                <h1 style="text-align: center">There are no active vote sites at the moment.</h1>
             </div>
-            <div class="content-area">
-                <section>
-                    <div class="section-header d-flex flex-column justify-content-center align-items-stretch flex-md-row justify-content-md-between align-items-md-center mb-2 mb-lg-4 gap-3">
-                        <h2 id="store-header" class="mb-0 d-flex justify-content-center justify-content-md-start align-items-center">
-                            <img src="{{asset('images/vote-icon.png')}}" />Vote for Edgeville
-                        </h2>
-                        <a href="#" class="redeem_btn py-3 px-4 h-auto">
-                            <img src="{{asset('images/help.png')}}" class="me-2">
-                            Claim Rewards
-                        </a>
-
-                    </div>
-                    <!--news post 1-->
-                    <div class="store-container p-3 p-lg-4">
-                        <div class="row g-3 g-lg-4">
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/runelocus.png')}}"></div>
-                                    <a href="#"><div class="vote-btn btn_lg">Vote</div></a>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/moparscape.png')}}"></div>
-                                    <a href="#"><div class="vote-btn btn_lg">Vote</div></a>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/runeserver.png')}}"></div>
-                                    <div class="vote-btn btn_lg disabled">Vote again in 1 hour</div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/runelist.png')}}"></div>
-                                    <a href="#"><div class="vote-btn btn_lg">Vote</div></a>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/rspslist.png')}}"></div>
-                                    <div class="vote-btn btn_lg disabled ">Vote again in 2 hours</div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-lg-6 col-xl-4">
-                                <div class="vote-item p-3 p-lg-4">
-                                    <div class="toplist-img"><img src="{{asset('images/topg.png')}}"></div>
-                                    <a href="#"><div class="vote-btn btn_lg">Vote</div></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-    </div>
-
+        @endforelse
+    </x-vote.container>
 </x-app-layout>

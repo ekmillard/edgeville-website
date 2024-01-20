@@ -16,10 +16,8 @@ class HighscoreController extends Controller
         $skill = $request->input('skill', 'overall_xp');
         $username = $request->input('username');
 
-        // Initialize the query
         $query = Highscores::query();
 
-        // Modify here to ignore the game mode filter when 'All' is selected
         if ($gameMode !== 'All') {
             $query->where('game_mode', $gameMode);
         }
@@ -28,7 +26,6 @@ class HighscoreController extends Controller
             $query->where('username', 'like', '%' . $username . '%');
         }
 
-        // If you're sorting by a specific skill (other than overall XP), calculate the level from the XP for that skill.
         if ($skill != 'overall_xp') {
             $query->select('*', DB::raw(ExperienceHelper::getLevelForXp($skill) . ' AS level'))
                 ->orderBy('level', 'desc')
@@ -40,7 +37,6 @@ class HighscoreController extends Controller
                 ->orderBy('overall_xp', 'desc');
         }
 
-        // Add the last_updated tiebreaker.
         $query->orderBy('updated_at', 'asc');
 
         $hiscores = $query->paginate(15);
