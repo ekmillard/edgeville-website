@@ -16,7 +16,7 @@ This repository contains the source code for the **Edgeville** website, develope
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/username/edgeville.git
+   git clone [https://github.com/username/edgeville.git](https://github.com/ekmillard/edgeville-website.git)
    cd edgeville
    ```
 
